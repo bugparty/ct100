@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "400Gb Helper",
+  "description": "可以在不关闭adblock的情况下使用城通网盘，妈妈再也不用担心城通网盘弹出广告啦",
+  "version": "1.0",
+
+  "permissions": [
+	"webRequest",
+	"webRequestBlocking",
+	"*://*.ct100.com/*","*://*.400gb.com/*"
+	],
+	
+	"background": {
+		"scripts": [
+			"background.js"
+		]
+	},
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "web_accessible_resources": ["inject.js","fackFunction.js"],
+  "content_scripts":[
+  {
+	"matches":["http://*.400gb.com/*"],
+	"js":["inject.js"]
+	}]
+	
+}
